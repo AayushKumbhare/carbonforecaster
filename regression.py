@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import pickle
-data = pd.read_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/final.csv')
+data = pd.read_csv('data/final.csv')
 data = data.dropna()
 
 features = ['Carbon-free energy percentage (CFE%)', 'Renewable energy percentage (RE%)', 'hour', 'day_of_week', 'is_summer', 'is_weekend','month', 'hour_cos', 'hour_sin']

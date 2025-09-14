@@ -12,7 +12,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from main import *
 from training_time import *
 
-data = pd.read_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/final.csv')
+data = pd.read_csv('data/final.csv')
 data = data.dropna()
 
 features = ['Carbon-free energy percentage (CFE%)', 'Renewable energy percentage (RE%)', 'hour', 'day_of_week', 'is_summer', 'is_weekend','month', 'hour_cos', 'hour_sin']
@@ -32,7 +32,7 @@ model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(x_train, y_train)
 y_pred = model.predict(x_test)
 
-training_set = pd.read_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/final.csv')
+training_set = pd.read_csv('data/final.csv')
 training_set['Datetime'] = pd.to_datetime(training_set['Datetime'], format='%Y-%m-%d %H:%M:%S')
 
 st.sidebar.header("Model Configuration")

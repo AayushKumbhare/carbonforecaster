@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data = pd.read_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/output 3.csv')
+data = pd.read_csv('data/output 3.csv')
 
 def visualize_carbon_intensity(data):
     plt.figure(figsize=(10, 6))
@@ -24,4 +24,4 @@ def visualize_renewable_energy(data):
 
 #visualize_renewable_energy(data)
 
-data.to_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/final.csv')
+data.to_csv('data/final.csv')
