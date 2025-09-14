@@ -7,10 +7,31 @@ import plotly.express as px
 import seaborn as sns
 import streamlit as st
 from datetime import datetime
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
 from main import *
 from training_time import *
 
-model = pickle.load(open('model.pkl', 'rb'))
+data = pd.read_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/final.csv')
+data = data.dropna()
+
+features = ['Carbon-free energy percentage (CFE%)', 'Renewable energy percentage (RE%)', 'hour', 'day_of_week', 'is_summer', 'is_weekend','month', 'hour_cos', 'hour_sin']
+target = 'carbon_intensity'
+
+x = data[features]
+y = data[target]
+
+split_idx = int(len(data) * 0.8)
+
+x_train = x.iloc[:split_idx]
+x_test = x.iloc[split_idx:]
+y_train = y.iloc[:split_idx]
+y_test = y.iloc[split_idx:]
+
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(x_train, y_train)
+y_pred = model.predict(x_test)
+
 training_set = pd.read_csv('/Users/aayushkumbhare/Desktop/carbon-footprint/data/final.csv')
 training_set['Datetime'] = pd.to_datetime(training_set['Datetime'], format='%Y-%m-%d %H:%M:%S')
 
