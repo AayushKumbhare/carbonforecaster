@@ -2,3 +2,15 @@ model.pkl
 __pycache__/
 *.pyc
 .DS_Store
+model.pkl
+__pycache__/
+*.pyc
+.DS_Store
+venv/
+*.numbers
+model.pkl
+__pycache__/
+*.pyc
+.DS_Store
+venv/
+*.numbers
